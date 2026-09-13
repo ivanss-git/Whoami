@@ -1,7 +1,0 @@
-<svg xmlns="http://w3.org" viewBox="0 0 100 100">
-  <!-- Smooth Dark Charcoal Rounded Box -->
-  <rect width="100" height="100" rx="22" fill="#1e1e1e"/>
-  
-  <!-- Bright Terminal Prompt Code Text -->
-  <text x="50" y="68" font-size="52" font-family="Courier New, monospace" font-weight="900" fill="#4af626" text-anchor="middle">&gt;_</text>
-</svg>
