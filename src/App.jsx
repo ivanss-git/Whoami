@@ -81,6 +81,10 @@ const upcoming = [
     date: 'September 2026',
   },
   {
+    name: 'IBM - Build with BOB Hackathon',
+    date: 'September 2026'
+  },
+  {
     name: 'SAS - Student Track Hackathon',
     date: 'October 2026',
   },
