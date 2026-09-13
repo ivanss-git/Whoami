@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon-terminal.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ivan Ibarra | Portfolio</title>
+
+  <!-- 1. The default fallback icon for older browsers -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- 2. The modern SVG icon with a cache-buster version tag -->
+  <link rel="icon" type="image/svg+xml" href="/favicon-terminal.svg?v=2" />
+
+  <!-- 3. The specialized icon for Apple devices and Safari shortcuts -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
