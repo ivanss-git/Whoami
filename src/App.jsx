@@ -35,7 +35,7 @@ const projects = [
       'Browser Extensions',
       'Data Pipelines',
     ],
-    github: 'https://github.com/ivanss-git/LotStack-project.git',
+    github: 'https://github.com/ivanss-git/LotStack-project',
     live: 'https://lotstack.onrender.com',
   },
 ]
@@ -56,10 +56,11 @@ const research = [
       'MATLAB',
       'TCGA / BRCA',
     ],
-    github: 'https://github.com/ivanss-git/CancerGraph.git',
+    github: 'https://github.com/ivanss-git/CancerGraph',
   },
   {
-    title: 'Energy-Aware Process Planning for 5-Axis Hybrid Direct Energy Deposition',
+    title:
+      'Energy-Aware Process Planning for 5-Axis Hybrid Direct Energy Deposition',
     status: 'STARTING',
     subtitle: 'Undergraduate Research · Algorithms · Manufacturing',
     description:
@@ -82,7 +83,7 @@ const upcoming = [
   },
   {
     name: 'IBM - Build with BOB Hackathon',
-    date: 'September 2026'
+    date: 'September 2026',
   },
   {
     name: 'SAS - Student Track Hackathon',
@@ -114,13 +115,14 @@ function App() {
           <a href="#about">About</a>
           <a href="#research">Research</a>
           <a href="#work">Work</a>
-          <a href="#now">Now</a>
-          <a href="#interests">Interests</a>
+          <a href="#upcoming">Upcoming</a>
+          <a href="#direction">Direction</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
       <main id="top">
+        {/* HERO */}
         <section className="hero">
           <div className="hero-grid" />
 
@@ -138,9 +140,8 @@ function App() {
             </h2>
 
             <p className="hero-text">
-              I build software and explore artificial intelligence, algorithms,
-              computational biology, and intelligent systems with a focus on
-              meaningful real-world problems.
+              I build software and research computational approaches to problems
+              in biology, manufacturing, and intelligent systems.
             </p>
 
             <div className="hero-actions">
@@ -173,6 +174,7 @@ function App() {
             </p>
           </div>
 
+          {/* TERMINAL */}
           <div className="terminal-card">
             <div className="terminal-top">
               <span />
@@ -192,20 +194,24 @@ function App() {
               <p>CS student · developer · researcher</p>
 
               <p>
-                <span>$</span> current_focus
+                <span>$</span> building
               </p>
-              <p>AI · software · computational biology</p>
+              <p>CancerGraph · LotStack</p>
+
+              <p>
+                <span>$</span> researching
+              </p>
+              <p>computational biology · process planning</p>
 
               <p>
                 <span>$</span> status
               </p>
-              <p className="terminal-active">
-                building something useful_
-              </p>
+              <p className="terminal-active">always learning_</p>
             </div>
           </div>
         </section>
 
+        {/* ABOUT */}
         <section id="about" className="section">
           <p className="section-label">&gt; about</p>
 
@@ -216,26 +222,26 @@ function App() {
 
             <div className="about-copy">
               <p>
-                I'm a Computer Science student at UT Arlington interested in
-                understanding how software, algorithms, and intelligent systems
-                can be used to solve difficult real-world problems.
+                I'm a Computer Science student at UT Arlington who enjoys taking
+                unfamiliar problems from something I don't yet understand to
+                something I can build, test, and improve.
               </p>
 
               <p>
-                I enjoy building systems end-to-end, learning unfamiliar
-                technologies quickly, and working on projects that combine
-                practical software engineering with deeper technical problems.
+                My work currently spans full-stack development, computational
+                biology, and undergraduate manufacturing research.
               </p>
 
               <p>
-                I'm currently developing software, participating in
-                undergraduate research, and exploring machine learning and
-                computational biology.
+                I'm especially interested in projects where software, algorithms,
+                and intelligent systems can contribute to problems outside of
+                traditional software development.
               </p>
             </div>
           </div>
         </section>
 
+        {/* RESEARCH */}
         <section id="research" className="section">
           <p className="section-label">&gt; research</p>
           <h2>Research</h2>
@@ -278,6 +284,7 @@ function App() {
           </div>
         </section>
 
+        {/* SELECTED WORK */}
         <section id="work" className="section">
           <p className="section-label">&gt; selected_work</p>
           <h2>Things I've built</h2>
@@ -288,6 +295,7 @@ function App() {
                 <div className="project-top">
                   <div className="project-heading">
                     <span>0{index + 1}</span>
+
                     <div>
                       <h3>{project.title}</h3>
                       <p className="project-type">{project.type}</p>
@@ -297,10 +305,13 @@ function App() {
                   <span className="status-badge">{project.status}</span>
                 </div>
 
-                <p className="project-description">{project.description}</p>
+                <p className="project-description">
+                  {project.description}
+                </p>
 
                 <div className="stack-block">
                   <p className="stack-title">STACK</p>
+
                   <div className="tags">
                     {project.stack.map((item) => (
                       <span key={item}>{item}</span>
@@ -310,6 +321,7 @@ function App() {
 
                 <div className="stack-block">
                   <p className="stack-title">CONCEPTS</p>
+
                   <div className="tags concepts">
                     {project.concepts.map((item) => (
                       <span key={item}>{item}</span>
@@ -341,42 +353,12 @@ function App() {
           </div>
         </section>
 
-        <section id="now" className="section">
-          <p className="section-label">&gt; now</p>
-          <h2>What I'm doing now</h2>
-
-          <div className="cards">
-            <article className="card">
-              <p className="card-number">01</p>
-              <h3>Research</h3>
-              <p>
-                Working on computational biology and beginning research in
-                energy-aware manufacturing process planning.
-              </p>
-            </article>
-
-            <article className="card">
-              <p className="card-number">02</p>
-              <h3>Building</h3>
-              <p>
-                Developing CancerGraph while continuing to improve LotStack and
-                experiment with new software ideas.
-              </p>
-            </article>
-
-            <article className="card">
-              <p className="card-number">03</p>
-              <h3>Learning</h3>
-              <p>
-                Algorithms, theory of computation, probability, software
-                engineering, machine learning, and research methods.
-              </p>
-            </article>
-          </div>
+        {/* UPCOMING */}
+        <section id="upcoming" className="section">
+          <p className="section-label">&gt; upcoming</p>
+          <h2>What's next</h2>
 
           <div className="upcoming">
-            <p className="section-label">&gt; upcoming_events</p>
-
             {upcoming.map((event) => (
               <div className="event" key={event.name}>
                 <h3>{event.name}</h3>
@@ -386,19 +368,10 @@ function App() {
           </div>
         </section>
 
-        <section id="interests" className="section">
-          <p className="section-label">&gt; interests</p>
+        {/* DIRECTION */}
+        <section id="direction" className="section direction">
+          <p className="section-label">&gt; direction</p>
           <h2>Where I'm headed</h2>
-
-          <div className="interest-grid">
-            <span>Artificial Intelligence</span>
-            <span>Machine Learning</span>
-            <span>Computational Biology</span>
-            <span>Cancer Research</span>
-            <span>Software Engineering</span>
-            <span>Algorithms</span>
-            <span>Applied Research</span>
-          </div>
 
           <p className="future-text">
             Long term, I want to work at the intersection of software,
@@ -408,6 +381,7 @@ function App() {
           </p>
         </section>
 
+        {/* CONTACT */}
         <section id="contact" className="section contact">
           <p className="section-label">&gt; contact</p>
           <h2>Let's build something.</h2>
@@ -437,7 +411,9 @@ function App() {
             </a>
           </div>
 
-          <p className="school-email">UTA · iai9712@mavs.uta.edu</p>
+          <p className="school-email">
+            UTA · iai9712@mavs.uta.edu
+          </p>
         </section>
       </main>
 
