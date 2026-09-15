@@ -52,47 +52,47 @@ const moments = [
     image: '/images/family.jpg',
     label: 'Family',
     caption: 'Uncle and godfather!',
-d  },
+  },
   {
     image: '/images/friends.jpg',
     label: 'Friends',
     caption: 'My people!',
-d  },
+  },
   {
     image: '/images/adventure.jpg',
     label: 'Adventure',
     caption: 'This got muddy fast.',
-d  },
+  },
   {
     image: '/images/race.jpg',
     label: 'Running',
     caption: 'Half marathon!!',
-d  },
+  },
   {
     image: '/images/fishing.jpg',
     label: 'Outside',
     caption: 'We caught something!',
-d  },
+  },
   {
     image: '/images/campus.jpg',
     label: 'Just for fun',
     caption: 'Quick Snap!',
-d  },
+  },
   {
     image: '/images/paris.jpg',
     label: 'Travel',
     caption: 'Lost in Paris.',
-d  },
+  },
   {
     image: '/images/switzerland.jpg',
     label: 'Travel',
     caption: 'Switzerland was unreal.',
-d  },
+  },
   {
     image: '/images/soccer.jpg',
     label: 'Just for fun',
     caption: 'A few yesterdays ago..',
-d  },
+  },
 ]
 
 function App() {
