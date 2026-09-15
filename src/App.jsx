@@ -3,37 +3,23 @@ import './App.css'
 const projects = [
   {
     title: 'LotStack',
-    status: 'ACTIVE',
-    type: 'Full-stack application',
+    status: 'IN DEVELOPMENT',
+    type: 'Full-stack vehicle auction platform',
     description:
-      'A vehicle auction analysis platform that collects and normalizes listing data, estimates costs and market value, and supports better purchase decisions through ranked recommendations.',
+      'A tool inspired by my experience helping buy, repair, and sell vehicles. LotStack collects auction listings, estimates ownership costs and market value, and ranks potential purchases by risk and expected return.',
     stack: [
       'Java 21',
       'Spring Boot',
-      'Spring Web',
-      'Spring Data JPA',
       'PostgreSQL',
-      'Flyway',
       'React',
       'TypeScript',
-      'Vite',
       'Python',
-      'Pandas',
-      'FastAPI',
-      'Pydantic',
-      'Requests',
-      'psycopg2',
-      'CRXJS',
-      'Docker Compose',
+      'Docker',
     ],
-    concepts: [
-      'REST APIs',
-      'Database Design',
-      'Web Scraping',
-      'Data Normalization',
-      'Ranking',
-      'Browser Extensions',
-      'Data Pipelines',
+    highlights: [
+      'Normalizes listings from different auction sources',
+      'Combines repair, transport, title, and market estimates',
+      'Includes a browser extension for live auction research',
     ],
     github: 'https://github.com/ivanss-git/LotStack-project',
     live: 'https://lotstack.onrender.com',
@@ -43,92 +29,64 @@ const projects = [
 const research = [
   {
     title: 'CancerGraph',
-    status: 'ACTIVE',
-    subtitle: 'Computational Biology · Machine Learning',
+    status: 'IN PROGRESS',
+    subtitle: 'Faculty-Supervised Undergraduate Research · Computational Biology',
     description:
-      'Research project beginning with breast cancer data from TCGA, focused on aligning clinical, miRNA, and genomic datasets for predictive modeling and biological relationship discovery.',
-    stack: [
-      'Python',
-      'Pandas',
-      'NumPy',
-      'SQL',
-      'PostgreSQL',
-      'MATLAB',
-      'TCGA / BRCA',
-    ],
+      'A faculty-supervised research project beginning with TCGA breast cancer data. I am currently building a reliable shared cohort across clinical, miRNA, and mRNA datasets before moving into predictive modeling and the investigation of biologically meaningful relationships.',
+    stack: ['Python', 'Pandas', 'NumPy', 'PostgreSQL', 'Machine Learning', 'TCGA'],
     github: 'https://github.com/ivanss-git/CancerGraph',
   },
   {
-    title:
-      'Energy-Aware Process Planning for 5-Axis Hybrid Direct Energy Deposition',
-    status: 'STARTING',
-    subtitle: 'Undergraduate Research · Algorithms · Manufacturing',
+    title: 'Energy-Aware Process Planning',
+    status: 'BEGINNING',
+    subtitle: 'Undergraduate Research · Algorithms · Advanced Manufacturing',
     description:
-      'Beginning undergraduate research on energy-aware process planning for 5-axis hybrid direct energy deposition, with a focus on MATLAB-based algorithms that automatically generate G-code and M-code for manufacturing processes.',
-    stack: [
-      'MATLAB',
-      'Algorithm Design',
-      'Process Planning',
-      'G-code',
-      'M-code',
-      'Optimization',
-    ],
+      'Contributing to a research project on energy-aware process planning for 5-axis hybrid direct energy deposition. My work is beginning with MATLAB and algorithms that generate G-code and M-code for manufacturing processes.',
+    stack: ['MATLAB', 'Algorithm Design', 'Process Planning', 'G-code', 'Optimization'],
   },
 ]
 
-const upcoming = [
+const interests = [
   {
-    name: 'MLH - Data Week',
-    date: 'September 2026',
+    title: 'Languages & travel',
+    text: 'I enjoy learning languages, visiting unfamiliar places, and experiencing how other people live and see the world.',
+    image: '/images/travel.jpg',
+    alt: 'Ivan traveling',
   },
   {
-    name: 'IBM - Build with BOB Hackathon',
-    date: 'September 2026',
+    title: 'Staying active',
+    text: 'Running, local run clubs, and anything that gets me away from a desk and around good people.',
+    image: '/images/active.jpg',
+    alt: 'Ivan at a run or outdoor activity',
   },
   {
-    name: 'SAS - Student Track Hackathon',
-    date: 'October 2026',
-  },
-  {
-    name: 'UTA - HackUTA',
-    date: 'TBD',
-  },
-  {
-    name: 'UTD - HackUTD Zero Day',
-    date: 'November 2026',
-  },
-  {
-    name: 'LaunchHacks v',
-    date: 'December 2026'
-  },
-  {
-    name: 'MLH - WEHack',
-    date: 'April 2027',
+    title: 'Always curious',
+    text: 'I read across technology, science, history, and whatever subject has recently caught my attention.',
+    image: '/images/curious.jpg',
+    alt: 'A moment from Ivan’s life outside of coding',
   },
 ]
 
 function App() {
   return (
     <div className="site">
-      <nav className="nav">
-        <a href="#top" className="brand">
+      <nav className="nav" aria-label="Main navigation">
+        <a href="#top" className="brand" aria-label="Go to top">
           <span>&gt;</span> whoami
         </a>
 
         <div className="nav-links">
           <a href="#about">About</a>
-          <a href="#research">Research</a>
           <a href="#work">Work</a>
-          <a href="#upcoming">Upcoming</a>
-          <a href="#direction">Direction</a>
+          <a href="#research">Research</a>
+          <a href="#outside">Beyond code</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
       <main id="top">
-        {/* HERO */}
         <section className="hero">
-          <div className="hero-grid" />
+          <div className="hero-grid" aria-hidden="true" />
 
           <div className="hero-content">
             <p className="terminal-line">&gt; whoami</p>
@@ -140,19 +98,21 @@ function App() {
             </h1>
 
             <h2>
-              Computer Science student, developer, and undergraduate researcher.
+              Computer Science student building software and exploring how
+              computing can help solve real-world problems.
             </h2>
 
             <p className="hero-text">
-              I build software and research computational approaches to problems
-              in biology, manufacturing, and intelligent systems.
+              I’m a junior at UT Arlington interested in software engineering,
+              machine learning, and computational research. Right now, I’m
+              building LotStack and contributing to research in biology and
+              advanced manufacturing.
             </p>
 
             <div className="hero-actions">
               <a href="#work" className="primary-button">
-                View my work
+                Explore my work
               </a>
-
               <a
                 href="https://github.com/ivanss-git"
                 target="_blank"
@@ -161,7 +121,6 @@ function App() {
               >
                 GitHub
               </a>
-
               <a
                 href="https://www.linkedin.com/in/ivan-ibarra-70a589207/"
                 target="_blank"
@@ -173,82 +132,122 @@ function App() {
             </div>
 
             <p className="status-line">
-              <span>&gt;</span> current_focus: AI × computational biology
+              <span>&gt;</span> currently_learning: Django · machine learning · MATLAB
               <span className="cursor">_</span>
             </p>
           </div>
 
-          {/* TERMINAL */}
-          <div className="terminal-card">
-            <div className="terminal-top">
+          <aside className="terminal-card" aria-label="Quick profile">
+            <div className="terminal-top" aria-hidden="true">
               <span />
               <span />
               <span />
             </div>
 
             <div className="terminal-body">
-              <p>
-                <span>$</span> whoami
-              </p>
+              <p><span>$</span> whoami</p>
               <p>Ivan Adair Ibarra</p>
 
-              <p>
-                <span>$</span> role
-              </p>
-              <p>CS student · developer · researcher</p>
+              <p><span>$</span> studying</p>
+              <p>Computer Science · UT Arlington</p>
 
-              <p>
-                <span>$</span> building
-              </p>
-              <p>CancerGraph · LotStack</p>
+              <p><span>$</span> building</p>
+              <p>LotStack · CancerGraph</p>
 
-              <p>
-                <span>$</span> researching
-              </p>
-              <p>computational biology · process planning</p>
-
-              <p>
-                <span>$</span> status
-              </p>
-              <p className="terminal-active">always learning_</p>
+              <p><span>$</span> currently_learning</p>
+              <p className="terminal-active">Django · ML · MATLAB_</p>
             </div>
-          </div>
+          </aside>
         </section>
 
-        {/* ABOUT */}
         <section id="about" className="section">
           <p className="section-label">&gt; about</p>
 
           <div className="section-grid">
             <div>
-              <h2>About me</h2>
+              <h2>Learning by building.</h2>
             </div>
 
             <div className="about-copy">
               <p>
-                I'm a Computer Science student at UT Arlington who enjoys taking
-                unfamiliar problems from something I don't yet understand to
-                something I can build, test, and improve.
+                I’m a Computer Science student who likes starting with a problem
+                I’m curious about, learning what I need, and gradually turning it
+                into something useful.
               </p>
 
               <p>
-                My work currently spans full-stack development, computational
-                biology, and undergraduate manufacturing research.
+                My current interests include full-stack development, machine
+                learning, computational biology, and software for scientific and
+                engineering work. I’m still early in that path, but I enjoy
+                taking on unfamiliar problems and figuring them out one step at
+                a time.
               </p>
 
               <p>
-                I'm especially interested in projects where software, algorithms,
-                and intelligent systems can contribute to problems outside of
-                traditional software development.
+                Alongside school, I’ve spent several years leading teams in a
+                fast-paced kitchen. That experience taught me how to communicate,
+                stay calm, and improve systems with real people depending on them.
               </p>
             </div>
           </div>
         </section>
 
-        {/* RESEARCH */}
+        <section id="work" className="section">
+          <p className="section-label">&gt; selected_work</p>
+          <h2>Things I’ve built</h2>
+
+          <div className="projects">
+            {projects.map((project, index) => (
+              <article className="project" key={project.title}>
+                <div className="project-top">
+                  <div className="project-heading">
+                    <span>0{index + 1}</span>
+                    <div>
+                      <h3>{project.title}</h3>
+                      <p className="project-type">{project.type}</p>
+                    </div>
+                  </div>
+                  <span className="status-badge">{project.status}</span>
+                </div>
+
+                <p className="project-description">{project.description}</p>
+
+                <div className="project-details">
+                  <div className="stack-block">
+                    <p className="stack-title">CORE TECHNOLOGIES</p>
+                    <div className="tags">
+                      {project.stack.map((item) => <span key={item}>{item}</span>)}
+                    </div>
+                  </div>
+
+                  <div className="stack-block">
+                    <p className="stack-title">WHAT IT DOES</p>
+                    <ul className="highlights">
+                      {project.highlights.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="project-links">
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer">
+                      View code →
+                    </a>
+                  )}
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noreferrer">
+                      Visit live site →
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="research" className="section">
-          <p className="section-label">&gt; research</p>
-          <h2>Research</h2>
+          <p className="section-label">&gt; research_and_exploration</p>
+          <h2>What I’m exploring</h2>
 
           <div className="research-list">
             {research.map((item, index) => (
@@ -260,25 +259,17 @@ function App() {
 
                 <div className="research-content">
                   <h3>{item.title}</h3>
-
                   <p className="research-subtitle">{item.subtitle}</p>
-
                   <p>{item.description}</p>
 
                   <div className="tags">
-                    {item.stack.map((tech) => (
-                      <span key={tech}>{tech}</span>
-                    ))}
+                    {item.stack.map((tech) => <span key={tech}>{tech}</span>)}
                   </div>
 
                   {item.github && (
                     <div className="project-links research-links">
-                      <a
-                        href={item.github}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        GitHub →
+                      <a href={item.github} target="_blank" rel="noreferrer">
+                        Follow the project →
                       </a>
                     </div>
                   )}
@@ -288,124 +279,49 @@ function App() {
           </div>
         </section>
 
-        {/* SELECTED WORK */}
-        <section id="work" className="section">
-          <p className="section-label">&gt; selected_work</p>
-          <h2>Things I've built</h2>
+        <section id="outside" className="section">
+          <p className="section-label">&gt; beyond_the_screen</p>
+          <h2>Usually curious about something.</h2>
 
-          <div className="projects">
-            {projects.map((project, index) => (
-              <article className="project" key={project.title}>
-                <div className="project-top">
-                  <div className="project-heading">
-                    <span>0{index + 1}</span>
+          <p className="section-intro">
+            Code is a large part of my life, but not the whole thing. I also like
+            discovering new places, staying active, learning languages, reading,
+            and meeting people with different perspectives.
+          </p>
 
-                    <div>
-                      <h3>{project.title}</h3>
-                      <p className="project-type">{project.type}</p>
-                    </div>
-                  </div>
-
-                  <span className="status-badge">{project.status}</span>
+          <div className="interest-grid">
+            {interests.map((interest) => (
+              <article className="interest-card" key={interest.title}>
+                <div className="interest-image-wrap">
+                  <img
+                    src={interest.image}
+                    alt={interest.alt}
+                    className="interest-image"
+                    loading="lazy"
+                  />
                 </div>
-
-                <p className="project-description">
-                  {project.description}
-                </p>
-
-                <div className="stack-block">
-                  <p className="stack-title">STACK</p>
-
-                  <div className="tags">
-                    {project.stack.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="stack-block">
-                  <p className="stack-title">CONCEPTS</p>
-
-                  <div className="tags concepts">
-                    {project.concepts.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="project-links">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub →
-                  </a>
-
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Live site →
-                    </a>
-                  )}
+                <div className="interest-copy">
+                  <h3>{interest.title}</h3>
+                  <p>{interest.text}</p>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        {/* UPCOMING */}
-        <section id="upcoming" className="section">
-          <p className="section-label">&gt; upcoming</p>
-          <h2>What's next</h2>
-
-          <div className="upcoming">
-            {upcoming.map((event) => (
-              <div className="event" key={event.name}>
-                <h3>{event.name}</h3>
-                <span>{event.date}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* DIRECTION */}
-        <section id="direction" className="section direction">
-          <p className="section-label">&gt; direction</p>
-          <h2>Where I'm headed</h2>
-
-          <p className="future-text">
-            Long term, I want to work at the intersection of software,
-            artificial intelligence, and scientific research — particularly on
-            technology capable of making a meaningful impact in healthcare,
-            biology, and other difficult real-world problems.
-          </p>
-        </section>
-
-        {/* CONTACT */}
         <section id="contact" className="section contact">
           <p className="section-label">&gt; contact</p>
-          <h2>Let's build something.</h2>
+          <h2>Say hello.</h2>
 
           <p>
-            I'm always interested in meeting people working on interesting
-            software, research, or ambitious technical problems.
+            I’m always happy to meet other students, developers, researchers,
+            and curious people. Feel free to reach out about a project,
+            opportunity, or shared interest.
           </p>
 
           <div className="contact-links">
             <a href="mailto:Ivan.ibarracs@gmail.com">Email</a>
-
-            <a
-              href="https://github.com/ivanss-git"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-
+            <a href="https://github.com/ivanss-git" target="_blank" rel="noreferrer">GitHub</a>
             <a
               href="https://www.linkedin.com/in/ivan-ibarra-70a589207/"
               target="_blank"
@@ -415,9 +331,7 @@ function App() {
             </a>
           </div>
 
-          <p className="school-email">
-            UTA · iai9712@mavs.uta.edu
-          </p>
+          <p className="school-email">UTA · iai9712@mavs.uta.edu</p>
         </section>
       </main>
 
