@@ -70,6 +70,7 @@ const moments = [
     image: '/images/race.jpeg',
     label: 'Running',
     caption: 'Half marathon!!',
+    fit: 'contain',
     position: 'center 30%',
   },
   {
@@ -380,6 +381,10 @@ function App() {
                 src={moments[activeMoment].image}
                 alt={moments[activeMoment].alt}
                 className="moment-image"
+                style={{
+                  objectFit: moments[activeMoment].fit || 'cover',
+                  objectPosition: moments[activeMoment].position || 'center',
+                }}
               />
 
               <button
