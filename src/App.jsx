@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import './App.css'
 
 const projects = [
@@ -46,28 +47,95 @@ const research = [
   },
 ]
 
-const interests = [
+const moments = [
   {
-    title: 'Languages & travel',
-    text: 'I enjoy learning languages, visiting unfamiliar places, and experiencing how other people live and see the world.',
-    image: '/images/travel.jpg',
-    alt: 'Ivan traveling',
+    image: '/images/family.jpg',
+    label: 'Family',
+    caption: 'Uncle and godfather!',
+    alt: 'Ivan with his godchild beside an airplane',
   },
   {
-    title: 'Staying active',
-    text: 'Running, local run clubs, and anything that gets me away from a desk and around good people.',
-    image: '/images/active.jpg',
-    alt: 'Ivan at a run or outdoor activity',
+    image: '/images/friends.jpg',
+    label: 'Friends',
+    caption: 'My people!',
+    alt: 'Ivan smiling with two friends',
   },
   {
-    title: 'Always curious',
-    text: 'I read across technology, science, history, and whatever subject has recently caught my attention.',
-    image: '/images/curious.jpg',
-    alt: 'A moment from Ivan’s life outside of coding',
+    image: '/images/adventure.jpg',
+    label: 'Adventure',
+    caption: 'This got muddy fast.',
+    alt: 'Ivan exploring a muddy trail surrounded by greenery',
+  },
+  {
+    image: '/images/race.jpg',
+    label: 'Running',
+    caption: 'Half marathon!!',
+    alt: 'Ivan crossing the finish area of a half marathon',
+  },
+  {
+    image: '/images/fishing.jpg',
+    label: 'Outside',
+    caption: 'We caught something!',
+    alt: 'Ivan fishing outdoors with a friend',
+  },
+  {
+    image: '/images/museum.jpg',
+    label: 'Curiosity',
+    caption: 'Museum wandering.',
+    alt: 'An artifact Ivan saw while visiting a museum',
+  },
+  {
+    image: '/images/paris.jpg',
+    label: 'Travel',
+    caption: 'Lost in Paris.',
+    alt: 'A lively street Ivan visited in Paris',
+  },
+  {
+    image: '/images/switzerland.jpg',
+    label: 'Travel',
+    caption: 'Switzerland was unreal.',
+    alt: 'A waterfront view from Ivan’s trip to Switzerland',
+  },
+  {
+    image: '/images/stadium.jpg',
+    label: 'Just for fun',
+    caption: 'Pretty nice seats!',
+    alt: 'A field-level view inside a large stadium',
   },
 ]
 
 function App() {
+  const [activeMoment, setActiveMoment] = useState(0)
+  const touchStartX = useRef(null)
+
+  const showPreviousMoment = () => {
+    setActiveMoment((current) =>
+      current === 0 ? moments.length - 1 : current - 1,
+    )
+  }
+
+  const showNextMoment = () => {
+    setActiveMoment((current) =>
+      current === moments.length - 1 ? 0 : current + 1,
+    )
+  }
+
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.touches[0].clientX
+  }
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return
+
+    const distance = touchStartX.current - event.changedTouches[0].clientX
+
+    if (Math.abs(distance) > 45) {
+      distance > 0 ? showNextMoment() : showPreviousMoment()
+    }
+
+    touchStartX.current = null
+  }
+
   return (
     <div className="site">
       <nav className="nav" aria-label="Main navigation">
@@ -132,7 +200,7 @@ function App() {
             </div>
 
             <p className="status-line">
-              <span>&gt;</span> currently_learning: Django · machine learning · MATLAB
+              <span>&gt;</span> current_focus: consistency · continuous improvement
               <span className="cursor">_</span>
             </p>
           </div>
@@ -154,8 +222,8 @@ function App() {
               <p><span>$</span> building</p>
               <p>LotStack · CancerGraph</p>
 
-              <p><span>$</span> currently_learning</p>
-              <p className="terminal-active">Django · ML · MATLAB_</p>
+              <p><span>$</span> current_focus</p>
+              <p className="terminal-active">building consistently_</p>
             </div>
           </aside>
         </section>
@@ -187,6 +255,12 @@ function App() {
                 Alongside school, I’ve spent several years leading teams in a
                 fast-paced kitchen. That experience taught me how to communicate,
                 stay calm, and improve systems with real people depending on them.
+              </p>
+
+              <p>
+                At UTA, I’m involved with ACM and SHPE. I try to write code
+                consistently, keep learning, and let small improvements compound
+                over time.
               </p>
             </div>
           </div>
@@ -280,32 +354,78 @@ function App() {
         </section>
 
         <section id="outside" className="section">
-          <p className="section-label">&gt; beyond_the_screen</p>
-          <h2>Usually curious about something.</h2>
+          <p className="section-label">&gt; outside_code</p>
+          <h2>A little more about me.</h2>
 
           <p className="section-intro">
-            Code is a large part of my life, but not the whole thing. I also like
-            discovering new places, staying active, learning languages, reading,
-            and meeting people with different perspectives.
+            When I’m not coding, I’m probably with family or friends, traveling,
+            reading, running, or learning something completely unrelated.
           </p>
 
-          <div className="interest-grid">
-            {interests.map((interest) => (
-              <article className="interest-card" key={interest.title}>
-                <div className="interest-image-wrap">
-                  <img
-                    src={interest.image}
-                    alt={interest.alt}
-                    className="interest-image"
-                    loading="lazy"
+          <div
+            className="moments-carousel"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowLeft') showPreviousMoment()
+              if (event.key === 'ArrowRight') showNextMoment()
+            }}
+            tabIndex="0"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Moments from Ivan’s life outside of coding"
+          >
+            <div className="moment-image-wrap">
+              <img
+                src={moments[activeMoment].image}
+                alt={moments[activeMoment].alt}
+                className="moment-image"
+              />
+
+              <button
+                type="button"
+                className="carousel-button carousel-button-left"
+                onClick={showPreviousMoment}
+                aria-label="Show previous photo"
+              >
+                ←
+              </button>
+
+              <button
+                type="button"
+                className="carousel-button carousel-button-right"
+                onClick={showNextMoment}
+                aria-label="Show next photo"
+              >
+                →
+              </button>
+
+              <span className="moment-count">
+                {String(activeMoment + 1).padStart(2, '0')} / {String(moments.length).padStart(2, '0')}
+              </span>
+            </div>
+
+            <div className="moment-footer" aria-live="polite">
+              <div>
+                <p className="moment-label">{moments[activeMoment].label}</p>
+                <h3>{moments[activeMoment].caption}</h3>
+              </div>
+
+              <div className="carousel-dots" aria-label="Choose a photo">
+                {moments.map((moment, index) => (
+                  <button
+                    type="button"
+                    key={`${moment.image}-${index}`}
+                    className={index === activeMoment ? 'carousel-dot active' : 'carousel-dot'}
+                    onClick={() => setActiveMoment(index)}
+                    aria-label={`Show photo ${index + 1}: ${moment.caption}`}
+                    aria-current={index === activeMoment ? 'true' : undefined}
                   />
-                </div>
-                <div className="interest-copy">
-                  <h3>{interest.title}</h3>
-                  <p>{interest.text}</p>
-                </div>
-              </article>
-            ))}
+                ))}
+              </div>
+            </div>
+
+            <p className="swipe-hint">Swipe, use the arrows, or press your keyboard arrow keys.</p>
           </div>
         </section>
 
