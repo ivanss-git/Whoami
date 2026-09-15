@@ -49,49 +49,58 @@ const research = [
 
 const moments = [
   {
-    image: '/images/family.jpg',
+    image: '/images/family.jpeg',
     label: 'Family',
     caption: 'Uncle and godfather!',
+    position: 'center',
   },
   {
-    image: '/images/friends.jpg',
+    image: '/images/friends.jpeg',
     label: 'Friends',
     caption: 'My people!',
+    position: 'center 35%',
   },
   {
-    image: '/images/adventure.jpg',
+    image: '/images/adventure.jpeg',
     label: 'Adventure',
     caption: 'This got muddy fast.',
+    position: 'center 60%',
   },
   {
-    image: '/images/race.jpg',
+    image: '/images/race.jpeg',
     label: 'Running',
     caption: 'Half marathon!!',
+    position: 'center 30%',
   },
   {
-    image: '/images/fishing.jpg',
+    image: '/images/fishing.jpeg',
     label: 'Outside',
     caption: 'We caught something!',
+    position: 'center 35%',
   },
   {
-    image: '/images/campus.jpg',
+    image: '/images/campus.jpeg',
     label: 'Just for fun',
     caption: 'Quick Snap!',
+    position: 'center 35%',
   },
   {
-    image: '/images/paris.jpg',
+    image: '/images/paris.jpeg',
     label: 'Travel',
     caption: 'Lost in Paris.',
+    position: 'center',
   },
   {
-    image: '/images/switzerland.jpg',
+    image: '/images/switzerland.jpeg',
     label: 'Travel',
     caption: 'Switzerland was unreal.',
+    position: 'center',
   },
   {
-    image: '/images/soccer.jpg',
+    image: '/images/soccer.jpeg',
     label: 'Just for fun',
     caption: 'A few yesterdays ago..',
+    position: 'center 45%',
   },
 ]
 
