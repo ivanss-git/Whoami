@@ -98,6 +98,10 @@ const upcoming = [
     date: 'November 2026',
   },
   {
+    name: 'LaunchHacks v',
+    date: 'December 2026'
+  },
+  {
     name: 'MLH - WEHack',
     date: 'April 2027',
   },
